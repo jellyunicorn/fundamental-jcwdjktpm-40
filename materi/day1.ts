@@ -167,3 +167,11 @@ let maximum: number = 67;
 const range: number = maximum - minimum + 1;
 const rn: number = Math.floor(Math.random() * range + minimum);
 console.log(rn);
+
+/*
+    ====== [Git Commit] ======
+
+    git add .
+    git commit -m "commit message"
+    git push origin namaBranch
+*/
