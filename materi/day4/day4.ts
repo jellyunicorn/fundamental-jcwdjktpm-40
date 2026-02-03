@@ -145,4 +145,123 @@ restyFunc(1, 2, 3, 4, 5, 6)
 
 /*
     ========= [Nested Functions] =========
+
+    fungsi dalam fungsi
+    inner function  -> bisa akses param dari outer function
+    outer function  -> ga bisa akses param dari inner function
 */
+
+function getMessage(firstName: string) {
+
+    function sayHello() {
+        return "Hello " + firstName + ", ";
+    }
+
+    function welcome() {
+        return "welcome to Purwhadika";
+    }
+
+    return sayHello() + welcome();
+
+}
+
+console.log(getMessage("Budi"));
+
+/*
+    ========= [Recursive Function] =========
+
+    fungsi yang memanggil diri sendiri
+*/
+
+function recursiveFibo(numFibo: number) {
+    if (numFibo <= 2) {
+        return 1;
+    } else {
+        return recursiveFibo(numFibo - 1) + recursiveFibo(numFibo - 2);
+    }
+}
+
+console.log(recursiveFibo(15));
+
+/*
+    ========= [Arrow] =========
+
+    shortcut nulis function expression
+*/
+
+const square2 = (angka: number) => {
+    return angka * angka;
+}
+
+// bisa disingkat kalo 1 line
+
+const square3 = (angka: number) => angka * angka;
+
+/*
+    ========= [Array Built-in Methods] =========
+
+    join(x)     ->  menggabungkan value dalam array ke bentuk string
+                    parameter: x-separated values (default: comma)
+    pop()       ->  hilangkan value terakhir
+    shift()     ->  hilangkan value pertama (index 0)
+    unshift()   ->  tambah value ke depan
+    push()      ->  tambah value ke akhir
+    splice()    ->  hapus, mengganti, atau menambah value pada array
+                    syntax: splice(startIndex, brpYgMauDiDelete, item)
+    sort()      ->  sorts array (string A-Z, number dari first digit doang)
+    reverse()   ->  reverse sort array
+*/
+
+// join
+const words: string[] = ["hello", "world"];
+console.log(words.join())
+
+// pop
+const words2: string[] = ["hello", "world"];
+words2.pop();
+console.log(words2);
+
+// shift
+const words3: string[] = ["hello", "world"];
+words3.shift();
+console.log(words3.shift());
+
+// unshift
+const words4: string[] = ["hello", "world"];
+words4.unshift("a");
+console.log(words4);
+
+// push
+const words5: string[] = ["hello", "world"];
+words5.push("a");
+console.log(words5);
+
+// splice
+const months: string[] = ["jan", "mar", "apr", "dec"];
+
+// nambah data
+months.splice(1, 0, "feb");
+console.log(months);
+
+
+// hapus data (2 items dari index 2)
+months.splice(2, 2, );
+console.log(months);
+
+// ganti data
+months.splice(1, 1, "mei");
+console.log(months);
+
+// sort & reverse
+
+// buat string
+const letters: string[] = ["b", "d", "a", "c"];
+letters.sort();
+console.log(letters);
+console.log(letters.reverse());
+
+// buat numbers
+const nums: number[] = [10, 67, 29, 1, 41, 9]
+console.log(nums.sort()); // cuman ngitung digit depan
+console.log(nums.sort((a, b) => a - b)); // ascending
+console.log(nums.sort((a, b) => b - a)); // descending
