@@ -154,7 +154,7 @@ console.log(letter === "a" ? "a" : "not a");
 
 // nested for loop
 for (let i = 0; i < 5; i++) {
-  console.log("Loop ke-" + (i+1));
+  console.log("Loop ke-" + (i + 1));
   for (let j = 0; j < 3; j++) {
     console.log("hello");
   }
@@ -162,7 +162,7 @@ for (let i = 0; i < 5; i++) {
 
 // decrementing for loop
 for (let i = 10; i > 0; i--) {
-  console.log("Loop " + i)
+  console.log("Loop " + i);
 }
 
 // while loop
@@ -170,7 +170,6 @@ let i: number = 1;
 
 while (i < 10) {
   console.log(i);
-
   i++;
 }
 
@@ -207,3 +206,4 @@ for (let i = 0; i < 5; i++) {
   if (i === 2) continue;
   console.log(i);
 }
+

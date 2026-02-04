@@ -101,9 +101,11 @@ function splitString(str: string) {
         } else {
             word += str.charAt(i);
         }
+
     }
 
+    if (word != "") arr.push(word);
     return arr;
 }
 
-console.log(splitString(" Hello  World !!!   d-fc#   !      "));
+console.log(splitString(" Hello  World "));

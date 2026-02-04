@@ -210,33 +210,40 @@ const square3 = (angka: number) => angka * angka;
                     syntax: splice(startIndex, brpYgMauDiDelete, item)
     sort()      ->  sorts array (string A-Z, number dari first digit doang)
     reverse()   ->  reverse sort array
+    includes()  ->  cek kalo value ada di dalam array
+    map()       ->  loop thru array, lakuan function for every index, dan return array baru
+    filter()    ->  loop thru array, return array baru berdasarkan condition
+    forEach()   ->  loop thru array, lakukan function for every index, ngga return function
+    find()      ->  cari first instance of value
+    findIndex() ->  kayak find() tapi return indexnya
+    reduce()    ->  lakukan aritmetik ke semua value dalam array
 */
 
-// join
+// JOIN
 const words: string[] = ["hello", "world"];
 console.log(words.join())
 
-// pop
+// POP
 const words2: string[] = ["hello", "world"];
 words2.pop();
 console.log(words2);
 
-// shift
+// SHIFT
 const words3: string[] = ["hello", "world"];
 words3.shift();
 console.log(words3.shift());
 
-// unshift
+// UNSHIFT
 const words4: string[] = ["hello", "world"];
 words4.unshift("a");
 console.log(words4);
 
-// push
+// PUSH
 const words5: string[] = ["hello", "world"];
 words5.push("a");
 console.log(words5);
 
-// splice
+// SPLICE
 const months: string[] = ["jan", "mar", "apr", "dec"];
 
 // nambah data
@@ -252,7 +259,7 @@ console.log(months);
 months.splice(1, 1, "mei");
 console.log(months);
 
-// sort & reverse
+// SORT & REVERSE
 
 // buat string
 const letters: string[] = ["b", "d", "a", "c"];
@@ -265,3 +272,82 @@ const nums: number[] = [10, 67, 29, 1, 41, 9]
 console.log(nums.sort()); // cuman ngitung digit depan
 console.log(nums.sort((a, b) => a - b)); // ascending
 console.log(nums.sort((a, b) => b - a)); // descending
+
+// INCLUDES
+
+const fruits3: string[] = ["Banana", "Orange", "Apple"];
+console.log(fruits3.includes("Banana"));
+
+// MAP
+
+const points: number[] = [1, 2, 3, 4, 5];
+const pointsMapped = points.map((point, index) => {
+    console.log(index);
+    return point * 2;
+});
+
+console.log(pointsMapped);
+
+// map on array of objects
+
+const stuff = [
+    { id: 1, b: "john"},
+    { id: 2, b: "john"},
+    { id: 3, b: "john"},
+    { id: 4, b: "john"}
+];
+
+const x = stuff.map((thing) => {
+    return thing.id;
+});
+
+console.log(x);
+
+const pointsEven = points.map((point) => {
+    if (point % 2 === 0) return point;
+})
+
+console.log(pointsEven); // returns undefined!!
+
+// FILTER
+
+const points2: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+const pointsEvenFilter = points2.filter((point, index) => {
+    console.log(index);
+    return point % 2 === 0;
+});
+
+console.log(pointsEvenFilter);
+
+// FOREACH
+points2.forEach((point) => {
+    console.log(point);
+});
+
+// FIND
+const names: string[] = ["john", "jane", "jane", "budi", "john", "budi"]
+
+const budi = names.find((name) => {
+    return name === "budi";
+});
+
+console.log(budi);
+
+// FINDINDEX
+
+const budiIndex = names.findIndex((name) => {
+    return name === "budi";
+});
+
+console.log(budiIndex);
+
+// REDUCE
+
+const points3: number[] = [100, 200, 300, 400, 500];
+
+const points3Reduced = points3.reduce((a, b) => {
+    return a / b;
+});
+
+console.log(points3Reduced);
