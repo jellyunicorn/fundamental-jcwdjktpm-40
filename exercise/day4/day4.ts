@@ -16,7 +16,7 @@ function arrayTriangle(height: number) {
     return;
 }
 
-arrayTriangle(4)
+arrayTriangle(5)
 
 // Question 2
 
@@ -24,14 +24,14 @@ function fizzBuzz(len: number) {
     const arr: (number | string)[] = [];
 
     for (let i = 1; i <= len; i++) {
-        const divisibleByThree: boolean = i % 3 === 0;
-        const divisibleByFive: boolean = i % 5 === 0;
+        const DIVISIBLE_BY_THREE: boolean = i % 3 === 0;
+        const DIVISIBLE_BY_FIVE: boolean = i % 5 === 0;
 
-        if (divisibleByThree && divisibleByFive) {
+        if (DIVISIBLE_BY_THREE && DIVISIBLE_BY_FIVE) {
             arr.push("FizzBuzz");
-        } else if (divisibleByThree) {
+        } else if (DIVISIBLE_BY_THREE) {
             arr.push("Fizz");
-        } else if (divisibleByFive) {
+        } else if (DIVISIBLE_BY_FIVE) {
             arr.push("Buzz");
         } else {
             arr.push(i);
@@ -82,24 +82,21 @@ function removeOdds(nums: number[]) {
 
 // Question 5
 
-// pake array built-in method
+// pake built-in method split
 function splitString(str: string) {
     return str.split(" ");
 }
 
-// manual (pake string built-in method)
+// manual
 function splitStringManual(str: string) {
     const arr: string[] = [];
     let word: string = "";
 
     for (let i = 0; i < str.length; i++) {
-        if (str.charAt(i) == " ") {
-            if (str.charAt(i-1) != " ") arr.push(word);
+        if (str.charAt(i) === " ") {
+            // prevent multiple spaces from becoming words
+            if (word != "") arr.push(word);
             word = "";
-        } else if(i == str.length-1) {
-            word += str.charAt(i)
-            arr.push(word);
-            break;
         } else {
             word += str.charAt(i);
         }
@@ -108,4 +105,4 @@ function splitStringManual(str: string) {
     return arr;
 }
 
-console.log(splitStringManual("Hello World !!!         !"));
+console.log(splitStringManual(" Hello  World !!!   d-fc#   !      "));
