@@ -71,24 +71,25 @@ function calculateBMI(weight: number, height: number) {
 // Question 4
 
 function removeOdds(nums: number[]) {
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] % 2 == 1) {
+
+    // pake filter
+    return nums.filter((num) => num % 2 === 0)
+
+    // pake splice
+    /* for (let i = 0; i < nums.length; i++) {
+        if (nums[i] % 2 === 1) {
             nums.splice(i, 1, );
         }
-    }
+    } */
 
     return nums;
 }
 
+console.log(removeOdds([2,4,5,6,9,2,2,3,1,0]))
+
 // Question 5
 
-// pake built-in method split
 function splitString(str: string) {
-    return str.split(" ");
-}
-
-// manual
-function splitStringManual(str: string) {
     const arr: string[] = [];
     let word: string = "";
 
@@ -105,4 +106,4 @@ function splitStringManual(str: string) {
     return arr;
 }
 
-console.log(splitStringManual(" Hello  World !!!   d-fc#   !      "));
+console.log(splitString(" Hello  World !!!   d-fc#   !      "));
