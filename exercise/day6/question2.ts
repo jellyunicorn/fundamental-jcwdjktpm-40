@@ -15,10 +15,15 @@ class Transaction {
 
     constructor(products: Product[]) {
         this.total = 0;
+        let productNames: string[];
         for (let i = 0; i < products.length; i++) {
             this.total += products[i].price;
-            this.product[products[i].name] = 1 + (this.product[products[i].name] || 0);
+            productNames.push(products[i].name);
         }
+        this.product = productNames.reduce((acc, curr) => {
+            acc[curr] = (acc[curr] || 0) + 1;
+            return acc;
+        })
     }
 
     addToCart(product: Product) {
@@ -37,3 +42,4 @@ class Transaction {
         return finalTransaction;
     }
 }
+
